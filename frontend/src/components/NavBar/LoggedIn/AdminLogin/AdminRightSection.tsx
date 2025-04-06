@@ -10,10 +10,11 @@ import {
   MenuList,
 } from "@chakra-ui/react";
 // import { IoSettingsOutline } from "react-icons/io5";
-import { MdAdd } from "react-icons/md";
+import { RiLogoutCircleRLine } from "react-icons/ri";
 import { NavLink } from "react-router";
 import { AdminMenu } from "./AdminLogin";
 import { FaChevronDown, FaUserAstronaut } from "react-icons/fa";
+import { IoSettingsOutline } from "react-icons/io5";
 
 interface props {
   items: AdminMenu[];
@@ -100,8 +101,25 @@ const AdminRightSection = ({ items }: props) => {
               <Text color={"blue"}>Admin</Text>
             </MenuButton>
             <MenuList>
-              <MenuItem>Buyers</MenuItem>
-              <MenuItem onClick={() => alert("Kagebunshin")}>Vendors</MenuItem>
+              <MenuItem
+                as={Button}
+                variant={"ghost"}
+                colorScheme="black"
+                borderRadius={0}
+                leftIcon={<IoSettingsOutline size={20} />}
+              >
+                Settings
+              </MenuItem>
+              <MenuItem
+                as={Button}
+                variant={"ghost"}
+                colorScheme="black"
+                borderRadius={0}
+                leftIcon={<RiLogoutCircleRLine size={20} />}
+                onClick={() => alert("Kagebunshin")}
+              >
+                LogOut
+              </MenuItem>
             </MenuList>
           </>
         )}
