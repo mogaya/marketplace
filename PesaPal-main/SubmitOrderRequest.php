@@ -9,9 +9,9 @@ $first_name = "Alvin";
 $middle_name = "Odari";
 $last_name = "Kiveu";
 $email_address = "alvo967@gmail.com";
-if(APP_ENVIROMENT == 'sandbox'){
+if($appEnv == 'sandbox'){
   $submitOrderUrl = "https://cybqa.pesapal.com/pesapalv3/api/Transactions/SubmitOrderRequest";
-}elseif(APP_ENVIROMENT == 'live'){
+}elseif($appEnv == 'live'){
   $submitOrderUrl = "https://pay.pesapal.com/v3/api/Transactions/SubmitOrderRequest";
 }else{
   echo "Invalid APP_ENVIROMENT";

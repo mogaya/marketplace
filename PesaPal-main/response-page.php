@@ -5,9 +5,9 @@
 include 'acesstoken.php';
 $OrderTrackingId = $_GET['OrderTrackingId'];
 $OrderMerchantReference = $_GET['OrderMerchantReference'];
-if(APP_ENVIROMENT == 'sandbox'){
+if($appEnv == 'sandbox'){
   $getTransactionStatusUrl = "https://cybqa.pesapal.com/pesapalv3/api/Transactions/GetTransactionStatus?orderTrackingId=$OrderTrackingId";
-}elseif(APP_ENVIROMENT == 'live'){
+}elseif($appEnv == 'live'){
   $getTransactionStatusUrl = "https://pay.pesapal.com/v3/api/Transactions/GetTransactionStatus?orderTrackingId=$OrderTrackingId";
 }else{
   echo "Invalid APP_ENVIROMENT";

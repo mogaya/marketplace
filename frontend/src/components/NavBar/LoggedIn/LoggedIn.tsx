@@ -2,8 +2,8 @@ import AdminLogin from "./AdminLogin";
 import VendorLogin from "./VendorLogin";
 
 const loggedIn = () => {
-  // return <VendorLogin />;
-  return <AdminLogin />;
+   return <VendorLogin />;
+  //return <AdminLogin />;
 };
 
 export default loggedIn;
