@@ -25,7 +25,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <SimpleGrid columns={{ sm: 2, md: 4, lg: 6 }} spacing={4} p={4} mt={"65px"}>
+    <SimpleGrid columns={{ sm: 2, md: 4, lg: 6 }} spacing={4} p={4}>
       {products.map((prod) => (
         <ProductCard key={prod.id} product={prod} />
       ))}
