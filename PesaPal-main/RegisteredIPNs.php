@@ -1,8 +1,8 @@
 <?php
 include 'acesstoken.php';
-if(APP_ENVIROMENT == 'sandbox'){
+if($appEnv == 'sandbox'){
     $getIpnListUrl = "https://cybqa.pesapal.com/pesapalv3/api/URLSetup/GetIpnList";
-}elseif(APP_ENVIROMENT == 'live'){
+}elseif($appEnv == 'live'){
     $getIpnListUrl = "https://pay.pesapal.com/v3/api/URLSetup/GetIpnList";
 }else{
     echo "Invalid APP_ENVIROMENT";

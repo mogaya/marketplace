@@ -17,15 +17,31 @@ export class AuthService {
     throw new UnauthorizedException('Invalid credentials');
   }
 
-  // Generate and return the JWT token with user data
-  async login(user: any) {
-    const payload = { email: user.email, role: user.role };
-    const access_token = this.jwtService.sign(payload); // Generate the access token
+// Generate and return access and refresh tokens
+async login(user: any) {
+  const payload = { email: user.email, role: user.role };
 
-    // Return the access token and user data
-    return {
-      access_token,
-      user, // Return the user data (without the password)
-    };
-  }
+  const access_token = this.jwtService.sign(payload, {
+    secret: process.env.JWT_ACCESS_SECRET,
+    expiresIn: '30m', // Short expiry for access token
+  });
+
+  const refresh_token = this.jwtService.sign(payload, {
+    secret: process.env.JWT_REFRESH_SECRET,
+    expiresIn: '1d', // Longer expiry for refresh token
+  });
+
+  // Optional: store refresh token in DB (hashed if needed) for future verification
+  // await this.prisma.user.update({
+  //   where: { email: user.email },
+  //   data: { refreshToken: hashedRefreshToken },
+  // });
+
+  return {
+    access_token,
+    refresh_token,
+    user,
+  };
+}
+
 }
