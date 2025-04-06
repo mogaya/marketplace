@@ -80,6 +80,7 @@ model Product {
   createdAt     DateTime      @default(now())
   updatedAt     DateTime      @updatedAt
   sales         String[]      // Store Sale IDs as Strings
+   rating        Float?        @default(0)
 }
 
 model Order {
