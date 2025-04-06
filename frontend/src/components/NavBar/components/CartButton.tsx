@@ -7,7 +7,7 @@ interface props {
 
 const CartButton = ({ cartCount }: props) => {
   return (
-    <Button position={"relative"} variant={"ghost"} colorScheme="gray">
+    <Button variant={"ghost"} colorScheme="gray">
       <MdShoppingCart size={60} />
       {cartCount > 0 && (
         <Box
